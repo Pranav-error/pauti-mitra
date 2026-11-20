@@ -2,20 +2,20 @@
 
 ## Gaps and how we close them
 
-| Gap | How we close it | Status |
-|---|---|---|
-| Who are the heirs | Encode the Hindu Succession Act (2005 amendment) as rules, each with test cases; other personal laws as separate rule sets | to build |
-| Reading a Kannada RTC | Sarvam Vision, then cross-check against cadastral data; mismatches asked back to the user | test first |
-| Ownership history | Live services show only pending items; history comes from the RTC the family has | to build |
-| Users who can't read | Voice only, one question at a time, operator mode for service centres | to build |
-| Wrong advice | Wills, disputes and court cases flagged and sent to the revenue office | to build |
-| Blocker check | Rule-based checks plus live lookups | working |
+| Gap | How we close it |
+|---|---|
+| Who are the heirs | Encode the Hindu Succession Act (2005 amendment) as rules, each with test cases; other personal laws as separate rule sets |
+| Reading a Kannada RTC | Sarvam Vision, then cross-check against cadastral data; mismatches asked back to the user |
+| Ownership history | Live services show only pending items; history comes from the RTC the family has |
+| Users who can't read | Voice only, one question at a time, operator mode for service centres |
+| Wrong advice | Wills, disputes and court cases flagged and sent to the revenue office |
+| Blocker check | Rule-based checks on the survey number plus live lookups of pending mutations and revenue cases |
 
 ## Build plan
 
 | Phase | Work | Done when |
 |---|---|---|
-| 1. Heirs + RTC | rules engine and tests, RTC reader, test on real RTC photos | heirs and shares come out of a photo |
+| 1. Core tools | heir rules engine and tests, RTC reader tested on real RTC photos, record checks and map overlays | heirs, shares and blockers come out of a photo |
 | 2. Agent | tool calling over all four tools, case file, form filler | a text chat produces a filled form |
 | 3. Voice + WhatsApp | Kannada speech in and out, WhatsApp bot, operator web app | the full flow works by voice |
 | 4. Field test | 5 to 10 real families or one service centre, fix what confuses them, lender report | demo ready for the finale |

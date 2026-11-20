@@ -31,4 +31,4 @@ The LLM asks and explains. Who inherits, and what blocks the transfer, is decide
 
 ## Status
 
-Idea stage. The record check and map overlays exist from an earlier prototype of ours (not in this repo: it uses government data we don't redistribute). Everything else is planned work for the prototype phase.
+Idea stage. Everything described here is planned work for the prototype phase.

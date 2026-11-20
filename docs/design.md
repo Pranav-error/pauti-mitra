@@ -33,7 +33,7 @@ Unusual cases (a will, a dispute, a court case) are flagged and sent to the reve
 | Language | IndicConformer (Kannada speech to text), Jugalbandi-style voice flow, Sarvam Vision (RTC only) |
 | Agent | LLM with tool calling, case file (who died, heirs, documents, next step) |
 | Tools | heir rules engine (Python, tested), record checks, map overlays, form filler |
-| Data | cadastral base (~29,900 villages, ~90 lakh survey rows), overlay layers from public maps |
+| Data | Karnataka cadastral maps, overlay layers from public maps |
 
 ## Business model
 

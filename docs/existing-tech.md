@@ -24,4 +24,4 @@ Documents usually needed: death certificate; deed or grant in the deceased's nam
 | WhatsApp voice flow | [Jugalbandi](https://www.thoughtworks.com/en-ca/clients/jugalbandi) pattern | voice note, text, answer, spoken reply |
 | Reading the RTC photo | [Sarvam Vision](https://docs.sarvam.ai/api/models/sarvam-vision) | Supports Kannada; to be tested on real RTC photos |
 | Heir shares | our own rules engine | No open-source calculator found; [JuriGram](https://jurigram.com/legal-calculators/family-divorce/inheritance) only to cross-check test cases |
-| Record checks and map overlays | our earlier prototype | Live pending mutations and revenue cases; lake, drain, encroachment, power-line layers |
+| Record checks and map overlays | our own (to build) | Live pending mutations and revenue cases from public e-Chawadi services; lake, drain, encroachment, power-line layers from public maps |
