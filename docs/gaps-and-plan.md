@@ -4,6 +4,9 @@
 
 | Gap | How we close it |
 |---|---|
+| Families who never come forward | Start from the government's list of records with a dead owner; the village accountant or service centre reaches each family |
+| Sibling disputes stall everything | Record the heirs first, settle division later, where the process allows |
+| Daughters pressured to give up their share | She confirms on her own, in a separate call or visit |
 | Who are the heirs | Encode the Hindu Succession Act (2005 amendment) as rules, each with test cases; other personal laws as separate rule sets |
 | Reading a Kannada RTC | Sarvam Vision, then cross-check against cadastral data; mismatches asked back to the user |
 | Ownership history | Live services show only pending items; history comes from the RTC the family has |
@@ -28,6 +31,7 @@
 | Complex inheritance (ancestral property, many generations) | Handle the common case well; send complex cases to the revenue office |
 | Live lookups change or are blocked | They are public services, not an official API; keep the check optional and cite the source record |
 | Wrong legal output | Tests from the Act's own examples; the agent shows its reasoning |
+| Access to the government's deceased-owner list | Ask the Revenue Department; without it, start from families who come to the service centre |
 | Privacy | Minimum data, consent before any lookup, nothing kept after the application |
 
 ## How we measure success

@@ -10,11 +10,12 @@ About 48 lakh land records (RTCs) in Karnataka still list an owner who has died.
 
 ## What Pauti Mitra does
 
-1. The family (or a village accountant / service centre operator) talks to it in Kannada.
+0. **It goes to the family first.** Karnataka already knows which records have a dead owner (Aadhaar seeding). The village accountant or service centre gets the survey numbers in their village, and Pauti Mitra reaches each family, instead of waiting for them to come.
+1. The family (or the accountant / operator) talks to it in Kannada.
 2. It reads a photo of the RTC.
-3. It works out the legal heirs and their shares with fixed, tested rules (daughters included).
+3. It works out the legal heirs and their shares with fixed, tested rules (daughters included). **If a daughter gives up her share, she is asked separately, on her own.**
 4. It checks the survey number for anything that will block the transfer: pending mutations, pending revenue cases, lake / drain / encroachment overlap.
-5. It hands back a document checklist and a filled Pauti Khate application, on WhatsApp or printed.
+5. It hands back a document checklist and a filled Pauti Khate application, on WhatsApp or printed. **The family can start even if they haven't agreed how to divide the land:** heirs are recorded first, division later, where the process allows (as in Japan).
 
 The LLM asks and explains. Who inherits, and what blocks the transfer, is decided by code and live data.
 

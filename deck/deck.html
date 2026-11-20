@@ -88,15 +88,16 @@ td:first-child { font-weight: 700; width: 270px; }
 <!-- 3 workflow -->
 <div class="s">
   <div class="k">Workflow</div>
-  <h2>One conversation, one finished application</h2>
+  <h2>We go to the family, and leave with a finished application</h2>
   <svg width="1136" height="470" viewBox="0 0 1136 470" font-family="-apple-system, Helvetica Neue, Arial" >
     <defs>
       <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a8e"/></marker>
     </defs>
     <!-- user -->
     <rect x="0" y="40" width="190" height="110" rx="16" fill="#f5f5f7"/>
-    <text x="95" y="88" text-anchor="middle" font-size="20" font-weight="700">Family or</text>
-    <text x="95" y="114" text-anchor="middle" font-size="20" font-weight="700">CSC operator</text>
+    <text x="95" y="80" text-anchor="middle" font-size="19" font-weight="700">We reach</text>
+    <text x="95" y="104" text-anchor="middle" font-size="19" font-weight="700">the family</text>
+    <text x="95" y="130" text-anchor="middle" font-size="14" fill="#6e6e73">from govt dead-owner list</text>
     <!-- voice -->
     <rect x="250" y="40" width="190" height="110" rx="16" fill="#f5f5f7"/>
     <text x="345" y="84" text-anchor="middle" font-size="20" font-weight="700">Kannada voice</text>
@@ -144,7 +145,8 @@ td:first-child { font-weight: 700; width: 270px; }
       <text x="995" y="322" text-anchor="middle" font-size="15" fill="#6e6e73">lake, drain, encroachment,</text>
       <text x="995" y="344" text-anchor="middle" font-size="15" fill="#6e6e73">power line overlap</text>
     </g>
-    <text x="568" y="450" text-anchor="middle" font-size="17" fill="#6e6e73">The LLM talks and explains. Who inherits and what blocks the transfer is decided by code and live data.</text>
+    <text x="568" y="440" text-anchor="middle" font-size="17" fill="#1d1d1f" font-weight="700">Daughter gives up her share? She confirms on her own.   ·   Family disagrees? Record heirs first, divide later.</text>
+    <text x="568" y="466" text-anchor="middle" font-size="15" fill="#6e6e73">The LLM talks and explains. Who inherits and what blocks the transfer is decided by code and live data.</text>
   </svg>
   <div class="pg">3</div>
 </div>
@@ -201,6 +203,7 @@ td:first-child { font-weight: 700; width: 270px; }
   <h2>What's missing and how we close it</h2>
   <table>
     <tr><th>Gap</th><th>How we close it</th></tr>
+    <tr><td>Families who never come forward</td><td>Start from the government's list of records with a dead owner. The accountant or service centre reaches each family.</td></tr>
     <tr><td>Who are the heirs?</td><td>Encode the Hindu Succession Act (2005 amendment) as rules. Each rule gets test cases from the Act's own examples. Other personal laws added as separate rule sets.</td></tr>
     <tr><td>Reading a Kannada RTC</td><td>Vision model on the photo, then cross-check the survey number and owner names against the cadastral base. Anything that doesn't match is asked back to the user.</td></tr>
     <tr><td>Ownership history</td><td>Live services only show what is pending. History comes from the RTC the family has.</td></tr>
