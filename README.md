@@ -52,12 +52,58 @@ Each reference below backs a specific design choice. Full notes in [docs/researc
 | 14 | [Jugalbandi, AI4Bharat, OpenNyAI and Microsoft](https://www.thoughtworks.com/en-ca/clients/jugalbandi) | WhatsApp voice pipeline for government schemes | WhatsApp voice flow |
 | 15 | [Designing Production-Scale OCR for India, arXiv 2602.16430 (2026)](https://arxiv.org/html/2602.16430) and [Sarvam Vision](https://docs.sarvam.ai/api/models/sarvam-vision) | Multilingual Indian document OCR, Kannada supported | Reading the RTC photo |
 
+### Women's inheritance
+
+| # | Reference | Finding | How it shapes Pauti Mitra |
+|---|---|---|---|
+| 16 | [Deininger, Goyal, Nagarajan, Women's Inheritance Rights and Intergenerational Transmission of Resources in India, Journal of Human Resources (2013)](https://openknowledge.worldbank.org/server/api/core/bitstreams/9dc8882f-5fbf-5df5-9aca-78a67f413fa4/content) (World Bank WP 5338) | Karnataka's 1994 equal-share reform raised women's chance of inheriting land by 22 percentage points, but bias remained | Daughters' shares are enforced in the rules, not left to the family |
+| 17 | [Roy, Empowering women? Inheritance rights, female education and dowry payments in India, Journal of Development Economics (2015)](https://ideas.repec.org/a/eee/deveco/v114y2015icp233-251.html) | The reform did not raise actual inheritance; parents worked around it by giving land to sons | Show every heir's share openly; any daughter giving up her share needs her own consent step |
+| 18 | [Panda and Agarwal, Marital Violence, Human Development and Women's Property Status in India, World Development (2005)](https://knowledgecommons.popcouncil.org/departments_sbsr-rh/2251) | Women owning land or a house faced less marital violence (Kerala) | Impact case for getting women's names on the record |
+
+### Land offices, delays and bribes
+
+| # | Reference | Finding | How it shapes Pauti Mitra |
+|---|---|---|---|
+| 19 | [Bhoomi case study, National Centre for e-Governance](https://nceg.gov.in/assets/pdf/Bhoomi_Case%20Study_v1.0.pdf) and [Nayak, Computerisation of Land Records Programme in Karnataka (Cambridge, The State and Land Records Modernisation)](https://www.cambridge.org/core/books/state-and-land-records-modernisation/computerisation-of-land-records-programme-in-karnataka/CB2EA29F56F233BC5B6D062DEF0D2F44) | Karnataka digitised its records early; the book chapter gives a critical appraisal of the model | Digital records alone don't get a family through an update; the steps around it are the gap |
+| 20 | [LBSNAA Centre for Rural Studies, evaluation of Computerisation of Land Records in Karnataka](https://www.lbsnaa.gov.in/storage/uploads/pdf_data/1740658864_27-Final_CoLR_Karnataka_Web.pdf) | Ministry-commissioned field evaluation of the programme | Baseline for how citizens experience the land offices |
+| 21 | [Transparency International India and CMS, India Corruption Study 2007](https://www.transparency.org/en/press/20080627-corruption-in-government-services-leaves-bpl-households-in-a-lurch) and India Corruption Survey 2019 ([Scroll](https://scroll.in/latest/945102/corruption-51-indians-paid-bribes-in-last-one-year-down-from-56-in-2018-says-survey)) | Land records and registration rank second for bribes among poor households (2007); property and land was the top bribe sector in 2019 (49% of respondents) | Every step, office and document is spelled out so families don't need a middleman |
+
+### Voice design for low-literacy users
+
+| # | Reference | Finding | How it shapes Pauti Mitra |
+|---|---|---|---|
+| 22 | [Medhi, Sagar, Toyama, Text-Free User Interfaces for Illiterate and Semiliterate Users, ITID (2007)](https://courses.cs.washington.edu/courses/cse490c/18au/readings/medhi-2007.pdf) | Users who can't read strongly preferred voice and pictures over text | No text needed anywhere in the family's flow |
+| 23 | [Patel et al., Avaaj Otalo: a field study of an interactive voice forum for small farmers in rural India, CHI (2010)](https://collablab.northwestern.edu/CollabolabDistro/nucmc/PatelEtAl-AvaajOtalo-VoiceForumForSmallFarmers-2010.pdf) | 7-month pilot with 51 farmers in Gujarat; voice Q and A was the most used feature (CHI best paper) | Phone voice as the main channel for farmers |
+| 24 | [Mudliar, Donner, Thies, Emergent Practices Around CGNet Swara, ICTD (2012)](https://microsoft.com/en-us/research/wp-content/uploads/2016/02/ictd12-swara.pdf) | Rural users used a voice portal to report and resolve grievances | Voice works for dealing with government, not just information |
+
+### Legal rules as code
+
+| # | Reference | Finding | How it shapes Pauti Mitra |
+|---|---|---|---|
+| 25 | [Merigoux, Chataing, Protzenko, Catala: A Programming Language for the Law, ICFP (2021)](https://arxiv.org/abs/2103.03198) | Statutes written as code that mirrors each legal paragraph; found a bug in an official implementation | Heir rules written paragraph by paragraph from the Act, each with tests |
+
+### Other countries
+
+How other countries handle land records and inheritance, and what we take from each. Full comparison in [docs/global-approaches.md](docs/global-approaches.md).
+
+| # | Reference | Finding | How it shapes Pauti Mitra |
+|---|---|---|---|
+| 28 | [Rwanda Land Tenure Regularization, World Bank administrative-data study](https://openknowledge.worldbank.org/server/api/core/bitstreams/d63797f6-e70f-54b9-8dd8-6ab36c658793/content) | 8.4 million parcels registered in three years, but later transfers mostly stayed unregistered | A one-time drive isn't enough; updating has to stay cheap and local |
+| 29 | [Ali, Deininger, Goldstein, Environmental and Gender Impacts of Land Tenure Regularization in Africa (Rwanda pilot)](https://wider.unu.edu/publication/environmental-and-gender-impacts-land-tenure-regularization-africa) | Better recording of inheritance rights without gender bias | Record all heirs at the moment of inheritance |
+| 30 | [Estonia succession procedure, EU e-Justice](https://e-justice.europa.eu/topics/family-matters-inheritance/inheritance/information-authorities-issuing-ecs/ee_en) | Notary certifies heirs once; heir applies online; no state fee to enter the heir | One heir decision, reused for the application |
+| 31 | [Melesse, Dabissa, Bulte, Joint land certification and women's empowerment, Ethiopia, Journal of Development Studies (2018)](https://ideas.repec.org/a/taf/jdevst/v54y2018i10p1756-1774.html) | Joint certificates raised women's empowerment | Wives and daughters named on the record |
+| 32 | [Field, Entitled to Work: Urban Property Rights and Labor Supply in Peru, QJE (2007)](https://scholars.duke.edu/publication/771051) | Titled households worked more outside the home; child labour fell | Impact case for clear title |
+| 33 | [USAID MAST Tanzania performance evaluation](https://pdf.usaid.gov/pdf_docs/PA00M7ZK.pdf) and [cost study](https://pdf.usaid.gov/pdf_docs/PA00T8KT.pdf) | Mobile app plus trained village helpers to record rights; later scaled | Operator mode at service centres |
+| 34 | [U4 Anti-Corruption Resource Centre on Georgia's land registry](https://www.u4.no/blog/anti-corruption-reforms-successful-in-georgia-blockchain-stealing-limelight) | Institutional reform, not blockchain, drove the gains | No blockchain; fix the input to the official process |
+| 35 | [Enemark et al., Fit-for-Purpose Land Administration, FIG and World Bank (2014)](https://fig.net/resources/publications/figpub/pub60/figpub60.asp) | Land systems should be flexible, inclusive, participatory, affordable, upgradeable | Our design rules |
+| 36 | [UN-Habitat GLTN, Social Tenure Domain Model](https://oldweb.unhabitat.org/sites/default/files/documents/Social%20tenure%20domain%20model.pdf) | Open-source pro-poor land tool on the ISO 19152 land model | Case file follows ISO 19152 so it can connect to other systems |
+
 ### Future: land valuation
 
 | # | Reference | Finding | How it shapes Pauti Mitra |
 |---|---|---|---|
-| 16 | [IIMA and SFarmsIndia, ISALPI farmland price index (2024)](https://www.iima.ac.in/sites/default/files/2024-12/ISALPI%20December%202024%20Release.pdf) | Hedonic model; distance to cities and airports drives value | Valuation shown as a range |
-| 17 | [Thailand asset value from imagery, arXiv 2307.08650 (2023)](https://arxiv.org/pdf/2307.08650) and [India agricultural land segmentation, arXiv 2411.05359 (2024)](https://arxiv.org/html/2411.05359v1) | Satellite imagery plus tabular data for land value and land use | Later valuation module |
+| 26 | [IIMA and SFarmsIndia, ISALPI farmland price index (2024)](https://www.iima.ac.in/sites/default/files/2024-12/ISALPI%20December%202024%20Release.pdf) | Hedonic model; distance to cities and airports drives value | Valuation shown as a range |
+| 27 | [Thailand asset value from imagery, arXiv 2307.08650 (2023)](https://arxiv.org/pdf/2307.08650) and [India agricultural land segmentation, arXiv 2411.05359 (2024)](https://arxiv.org/html/2411.05359v1) | Satellite imagery plus tabular data for land value and land use | Later valuation module |
 
 ## Repo
 
@@ -65,6 +111,7 @@ Each reference below backs a specific design choice. Full notes in [docs/researc
 |---|---|
 | [docs/problem.md](docs/problem.md) | The problem, with numbers and sources |
 | [docs/research.md](docs/research.md) | Papers and reports we used |
+| [docs/global-approaches.md](docs/global-approaches.md) | How Rwanda, Estonia, Ethiopia, Peru, Tanzania and Georgia handle it, and the best approach combined |
 | [docs/existing-tech.md](docs/existing-tech.md) | What already exists (Landeed, the government campaign, open models) and what we reuse |
 | [docs/design.md](docs/design.md) | Workflow and stack |
 | [docs/gaps-and-plan.md](docs/gaps-and-plan.md) | Open gaps, how we close them, build plan, risks |
