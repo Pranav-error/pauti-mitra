@@ -114,6 +114,7 @@ The references that shape the design most. Full list in [docs/research.md](docs/
 | [docs/design.md](docs/design.md) | Workflow and stack |
 | [docs/gaps-and-plan.md](docs/gaps-and-plan.md) | Open gaps, how we close them, build plan, risks |
 | [engine/](engine/) | Heir rules engine (`heirs.py`, tested) and live blocker check (`blockers.py`) |
+| [tools/make_rtcs.py](tools/make_rtcs.py) | Makes labelled synthetic RTC photos (real IIHS/DoLR layout, made-up names) to score the RTC reader |
 | `sarvam_check.py` | One Sarvam call to check the API key (key in `.env`, never committed) |
 | [deck/](deck/) | Idea submission deck (PDF + HTML source) |
 
