@@ -46,8 +46,15 @@ The references that shape the design most. Full list in [docs/research.md](docs/
 | [docs/existing-tech.md](docs/existing-tech.md) | What already exists (Landeed, the government campaign, open models) and what we reuse |
 | [docs/design.md](docs/design.md) | Workflow and stack |
 | [docs/gaps-and-plan.md](docs/gaps-and-plan.md) | Open gaps, how we close them, build plan, risks |
+| [engine/](engine/) | Heir rules engine (`heirs.py`, tested) and live blocker check (`blockers.py`) |
 | [deck/](deck/) | Idea submission deck (PDF + HTML source) |
 
 ## Status
 
-Idea stage. Everything described here is planned work for the prototype phase.
+Shortlisted for the Tech4Bharat 2026 prototype round. Building now.
+
+| Part | State |
+|---|---|
+| Heir rules engine | built, 7 tests (`python3 engine/test_heirs.py`) |
+| Blocker check (pending cases, mutations, e-Pouthi) | built, live against e-Chawadi; needs the survey index (`PAUTI_DB`), not in this repo |
+| RTC reader, agent, Kannada voice, WhatsApp | not started |
