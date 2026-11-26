@@ -64,12 +64,25 @@ Researched 2026-11-27. The main source is the IIHS *Evaluation of Quality of Lan
 | Thinking division must come first | the state's own flow puts heirs in jointly first; podi is separate | say so plainly: you don't have to agree on the split to get onto the RTC |
 | Many visits | 23% of applicants visited the office more than once (IIHS p.41) | one checklist, every document ready before the visit |
 
+## Bhoomi "View RTC" (public, tested 2026-11-27)
+
+landrecords.karnataka.gov.in/service2/RTC.aspx has no login and no captcha. You pick district, taluk, hobli, village and survey number, then surnoc, hissa, period and year. It returns two things:
+- **an owner table:** name, extent, category, government restriction, court stay, alienated, plus "ongoing mutation" and "PYKI" flags;
+- **the rendered RTC** as a PNG.
+
+The district, taluk, hobli and village codes are the same ones e-Chawadi uses.
+
+**What we saw when we tested Sarvam on real RTCs:**
+- **The clean IIHS sample read well:** owner, extent, khata and the ಪೌತಿ MR in column 10.
+- **A live Bhoomi rendering lost the column 9 owner.** Long names overflow into the extent column (Doddamaskal 16/*/2), and the name only came back from the cultivator column, misspelled.
+- **The portal's own owner table also differs from the printed RTC:** it drops "ಬಿನ್", and writes the extent as "1.5.0" (acre.gunta.anna) where the RTC prints "1.05.00.00".
+
 ## What this changes in our design
 
 1. **"Heirs first, division later" isn't something we have to argue for.** It's already how Karnataka works: pouthi puts every heir on the RTC jointly, and podi or partition is a separate, optional step. We stop calling it a Japanese idea and point to the state's own process.
 2. **Our biggest new output is the family tree certificate pack:** the drawn family tree, an affidavit draft, and each heir's document list. That's the one paper the family has to produce themselves.
 3. **We prepare for the Aadhaar OTP day:** all heirs reachable, mobiles linked, daughters' consent already taken separately.
-4. **We read RTC columns 9, 10 and 11:** col 9 for owners (and "ಲೇ" marking a dead parent), col 10 for history (earlier ಪೌತಿ), col 11 for loans and stays.
+4. **The photo is used to find the record; Bhoomi supplies the facts.** From the RTC photo we take the village, survey number and hissa. The owners come from Bhoomi's own owner table, not from reading the image. Reading the image is only a cross-check, and is used for columns 10 and 11 (earlier ಪೌತಿ, loans, stays). This is because reading names off real RTCs is unreliable (see above). For production, ask the Revenue Department for proper API access instead of filling in the public form automatically.
 5. **We track the case afterwards:** the MR number on e-Chawadi (mutation status, RCCMS, e-Pouthi), which `blockers.py` already reads.
 
 ## Still to confirm on the ground

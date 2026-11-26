@@ -14,7 +14,7 @@ It gets a family ready for Karnataka's own inheritance process (pouthi khata / e
 
 0. **It goes to the family first.** Village officers have already flagged about 48 lakh dead owners during Aadhaar seeding. The village officer or service-centre operator works through their village's list with Pauti Mitra.
 1. **It talks** to the family in Kannada: who died, who is alive, any will, dispute or earlier partition.
-2. **It reads the RTC photo:** owners (column 9, where "ಲೇ" marks the late), mutation history (column 10, earlier ಪೌತಿ), loans and court stays (column 11).
+2. **It reads the RTC photo** to find the record (village, survey, hissa). It then fetches the owners from Bhoomi, where "ಲೇ" marks the late, and reads the mutation history (column 10, earlier ಪೌತಿ) and loans and court stays (column 11).
 3. **It works out the heirs and shares** with tested rules (Hindu Succession Act, daughters equal). **A daughter giving up her share confirms it on her own.**
 4. **It checks for blockers live:** pending revenue court case, a transfer already in progress, an e-Pouthi already filed.
 5. **It prepares the papers:**
@@ -70,7 +70,7 @@ flowchart TB
 | | Operator web app | The village officer or CSC operator runs a case for a family, one village list at a time | planned |
 | Language | Sarvam `saaras` | Kannada speech to text | key verified (`sarvam_check.py`) |
 | | Sarvam `bulbul` | Kannada text to speech | planned |
-| | Sarvam Vision | Reads RTC columns 9, 10, 11 into structured fields, cross-checked against the survey index | next |
+| | Sarvam Vision | Reads the RTC photo to find village, survey number and hissa, plus columns 10 and 11. Owners come from Bhoomi's own owner table; the photo is only a cross-check (names overflow on real RTCs) | tested on real RTCs |
 | Agent | `sarvam-105b` with tools | Asks one question at a time, fills the case file, calls the tools, explains results. Never decides who inherits | planned |
 | Tools | [`engine/heirs.py`](engine/heirs.py) | Class I heirs and shares (male owner: s.8, s.10; female owner: s.15(1)(a), s.16). Wills, ancestral property, disputes, other personal laws go to the revenue office | **built, 7 tests** |
 | | [`engine/blockers.py`](engine/blockers.py) | Live: pending RCCMS case, mutation in progress, e-Pouthi already filed. A failed lookup is `unknown`, never green | **built, live** |
