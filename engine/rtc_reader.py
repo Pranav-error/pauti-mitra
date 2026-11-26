@@ -184,7 +184,7 @@ def locate(fields, db):
     best = [n for k in close for n in keys[k]]
     if not best:
         return None
-    q = (f"select distinct village_name, dist, taluk, hobli, vlg from survey_index where village_name in "
+    q = (f"select distinct village_name, dist, taluk, hobli, vlg, village_code from survey_index where village_name in "
          f"({','.join('?' * len(best))})")
     args = list(best)
     if fields.get("survey"):  # the survey number must exist in that village: removes most look-alikes
@@ -193,7 +193,7 @@ def locate(fields, db):
     rows = con.execute(q, args).fetchall()
     rank = {n: i for i, n in enumerate(best)}
     rows.sort(key=lambda r: rank[r[0]])
-    return [{"village": r[0], "dist": r[1], "taluk": r[2], "hobli": r[3], "vlg": r[4]} for r in rows][:5]
+    return [{"village": r[0], "dist": r[1], "taluk": r[2], "hobli": r[3], "vlg": r[4], "lgd": r[5]} for r in rows][:5]
 
 
 def _line_after(path, words, label, scale):
