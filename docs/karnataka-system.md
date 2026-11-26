@@ -77,6 +77,21 @@ The district, taluk, hobli and village codes are the same ones e-Chawadi uses.
 - **A live Bhoomi rendering lost the column 9 owner.** Long names overflow into the extent column (Doddamaskal 16/*/2), and the name only came back from the cultivator column, misspelled.
 - **The portal's own owner table also differs from the printed RTC:** it drops "ಬಿನ್", and writes the extent as "1.5.0" (acre.gunta.anna) where the RTC prints "1.05.00.00".
 
+## Reading RTC photos: Tesseract vs Sarvam (40 real Bhoomi RTCs, 8 districts, 2026-11-27)
+
+The raw text from each engine was scored against the portal's own owner table (`tools/compare_ocr.py`):
+
+| | Village | Survey no. | Owner names | Cost | Time |
+|---|---|---|---|---|---|
+| Tesseract kan+eng (local) | 90% | **100%** | 46% | Rs 0 | ~4 s |
+| Sarvam document intelligence | **97.5%** | 62.5% | **85%** | ~Rs 0.5 | ~5.6 s |
+
+**They're good at different things.** Tesseract reads numbers reliably; Sarvam reads Kannada names much better. So we chain them, in the InfrX pattern: each step runs only when the cheaper one before it fails.
+- Tesseract and rules find the record (`engine/rtc_reader.py`): **80% exact match, 90% in the top 5**.
+- Sarvam's village reading is added only when that fails (8 of 40 RTCs): **82.5% exact, 90% in the top 5**.
+- The rest are villages that share a name, or survey numbers Tesseract didn't read. There we ask the family one question ("which taluk?") instead of running more OCR.
+- Owners always come from Bhoomi, so Sarvam's better name reading matters less.
+
 ## What this changes in our design
 
 1. **"Heirs first, division later" isn't something we have to argue for.** It's already how Karnataka works: pouthi puts every heir on the RTC jointly, and podi or partition is a separate, optional step. We stop calling it a Japanese idea and point to the state's own process.
