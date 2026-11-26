@@ -10,7 +10,7 @@ Every source we used, grouped. The strongest ones are in the README. We read sum
 | 2 | [PRS Legislative Research, Land Records and Titles in India](https://prsindia.org/policy/analytical-reports/land-records-and-titles-india) | 86% of land records computerised but only 47% of mutations | The gap is in updating records, not storing them |
 | 3 | [Lok Sabha Standing Committee on Rural Development, Report 41 (2026)](https://sansad.in/getFile/app/lsscommittee/Rural%20Development%20and%20Panchayati%20Raj/18_Rural_Development_and_Panchayati_Raj_41.pdf?source=app) | Inheritance, partition and court-order changes not reflected promptly | Confirms inheritance as a priority case |
 | 4 | [Damle and Gulati, land litigation study, Delhi High Court (Carnegie India, 2021)](https://carnegieendowment.org/events/2021/09/land-litigation-in-india-learnings-from-a-study-on-land-litigation-in-delhi) | Record-related disputes are 13.6% of property litigation there | We don't claim to fix court backlogs; we fix one process |
-| 5 | [Deccan Herald, Revenue Minister on women's land share](https://www.deccanherald.com/india/karnataka/kin-denying-women-land-share-karnataka-minister-krishna-byre-gowda-3895511) | Relatives deny women their share | Heir shares computed by rules and shown openly, daughters included |
+| 5 | [Deccan Herald, then Revenue Minister on women's land share](https://www.deccanherald.com/india/karnataka/kin-denying-women-land-share-karnataka-minister-krishna-byre-gowda-3895511) | Relatives deny women their share | Heir shares computed by rules and shown openly, daughters included |
 
 ### Why clear title matters
 

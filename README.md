@@ -10,14 +10,80 @@ About 48 lakh land records (RTCs) in Karnataka still list an owner who has died.
 
 ## What Pauti Mitra does
 
-0. **It goes to the family first.** Karnataka already knows which records have a dead owner (Aadhaar seeding). The village accountant or service centre gets the survey numbers in their village, and Pauti Mitra reaches each family, instead of waiting for them to come.
-1. The family (or the accountant / operator) talks to it in Kannada.
-2. It reads a photo of the RTC.
-3. It works out the legal heirs and their shares with fixed, tested rules (daughters included). **If a daughter gives up her share, she is asked separately, on her own.**
-4. It checks the survey number for anything that will block the transfer: pending mutations, pending revenue cases, lake / drain / encroachment overlap.
-5. It hands back a document checklist and a filled Pauti Khate application, on WhatsApp or printed. **The family can start even if they haven't agreed how to divide the land:** heirs are recorded first, division later, where the process allows (as in Japan).
+It gets a family ready for Karnataka's own inheritance process (pouthi khata / e-Pouthi), so the application goes through on the first try. How that process works, with sources: [docs/karnataka-system.md](docs/karnataka-system.md).
+
+0. **It goes to the family first.** Village officers have already flagged about 48 lakh dead owners during Aadhaar seeding. The village officer or service-centre operator works through their village's list with Pauti Mitra.
+1. **It talks** to the family in Kannada: who died, who is alive, any will, dispute or earlier partition.
+2. **It reads the RTC photo:** owners (column 9, where "ಲೇ" marks the late), mutation history (column 10, earlier ಪೌತಿ), loans and court stays (column 11).
+3. **It works out the heirs and shares** with tested rules (Hindu Succession Act, daughters equal). **A daughter giving up her share confirms it on her own.**
+4. **It checks for blockers live:** pending revenue court case, a transfer already in progress, an e-Pouthi already filed.
+5. **It prepares the papers:**
+   - the family tree certificate pack (drawn tree, affidavit draft, every heir listed);
+   - the document checklist;
+   - an "Aadhaar OTP day" list, so every heir has a linked, working mobile.
+6. **It tracks the MR number** on e-Chawadi until the new RTC is out.
+
+All heirs go onto the RTC jointly first. Dividing the land (partition, 11E sketch, podi) is a separate step later, which is Karnataka's own order, so a family doesn't have to agree on the split to start.
 
 The LLM asks and explains. Who inherits, and what blocks the transfer, is decided by code and live data.
+
+## Architecture
+
+```mermaid
+flowchart TB
+  subgraph Channels
+    W[WhatsApp voice notes] 
+    O[Operator web app - village officer / CSC]
+  end
+  subgraph Language["Language (Sarvam)"]
+    STT[Speech to text: saaras]
+    TTS[Text to speech: bulbul]
+    VIS[RTC reader: Sarvam Vision / document intelligence]
+  end
+  subgraph Agent
+    LLM[LLM with tool calling: sarvam-105b]
+    CF[(Case file: deceased, heirs, documents, MR no., next step)]
+  end
+  subgraph Tools["Tools: code decides"]
+    H[heirs.py: heir rules engine]
+    B[blockers.py: live e-Chawadi checks]
+    P[papers: family tree pack, checklist, OTP-day list]
+    T[tracker: MR status until new RTC]
+  end
+  subgraph Data
+    EC[e-Chawadi live: RCCMS, mutations, e-Pouthi]
+    SI[(Survey index: village + survey no. to portal codes)]
+  end
+  W --> STT --> LLM
+  O --> LLM
+  W -->|RTC photo| VIS --> LLM
+  LLM --> TTS --> W
+  LLM <--> CF
+  LLM --> H & B & P & T
+  B --> SI
+  B & T --> EC
+```
+
+| Layer | Component | Does | State |
+|---|---|---|---|
+| Channels | WhatsApp bot | Voice notes and an RTC photo in, spoken Kannada replies and PDFs out | planned |
+| | Operator web app | The village officer or CSC operator runs a case for a family, one village list at a time | planned |
+| Language | Sarvam `saaras` | Kannada speech to text | key verified (`sarvam_check.py`) |
+| | Sarvam `bulbul` | Kannada text to speech | planned |
+| | Sarvam Vision | Reads RTC columns 9, 10, 11 into structured fields, cross-checked against the survey index | next |
+| Agent | `sarvam-105b` with tools | Asks one question at a time, fills the case file, calls the tools, explains results. Never decides who inherits | planned |
+| Tools | [`engine/heirs.py`](engine/heirs.py) | Class I heirs and shares (male owner: s.8, s.10; female owner: s.15(1)(a), s.16). Wills, ancestral property, disputes, other personal laws go to the revenue office | **built, 7 tests** |
+| | [`engine/blockers.py`](engine/blockers.py) | Live: pending RCCMS case, mutation in progress, e-Pouthi already filed. A failed lookup is `unknown`, never green | **built, live** |
+| | Papers | Family tree drawing and affidavit draft, checklist, OTP-day list | planned |
+| | Tracker | MR number on e-Chawadi until the new RTC | planned (reuses `blockers.py`) |
+| Data | e-Chawadi | Public revenue portal. Since Nov 2026 it returns HTML cards, which we parse | live |
+| | Survey index | About 9M survey numbers mapped to portal codes, from the author's cadastral crawl. **Not in this repo** (set `PAUTI_DB`) | local |
+
+**Trust and privacy rules (enforced in code):**
+- **The LLM never decides heirs or blockers.** It only explains what `heirs.py` and `blockers.py` return, and each claim cites its source.
+- **Unclear cases are never guessed.** Wills, disputes, ancestral property and law gaps raise `NeedsReview` and go to the revenue office.
+- **e-Pouthi records contain heirs' Aadhaar and mobile numbers.** We report only whether a record exists, and never read those fields out.
+- **We store as little as possible.** Lookups need consent. Nothing is kept after the application, and government data isn't redistributed.
 
 ## Key research
 
@@ -44,9 +110,11 @@ The references that shape the design most. Full list in [docs/research.md](docs/
 | [docs/research.md](docs/research.md) | Papers and reports we used |
 | [docs/global-approaches.md](docs/global-approaches.md) | How Japan, the US, China, Estonia, Rwanda and Ethiopia handle it, and the best approach combined |
 | [docs/existing-tech.md](docs/existing-tech.md) | What already exists (Landeed, the government campaign, open models) and what we reuse |
+| [docs/karnataka-system.md](docs/karnataka-system.md) | How pouthi / e-Pouthi, RTC columns, mutation, RCCMS and podi actually work, and what that changes in our design |
 | [docs/design.md](docs/design.md) | Workflow and stack |
 | [docs/gaps-and-plan.md](docs/gaps-and-plan.md) | Open gaps, how we close them, build plan, risks |
 | [engine/](engine/) | Heir rules engine (`heirs.py`, tested) and live blocker check (`blockers.py`) |
+| `sarvam_check.py` | One Sarvam call to check the API key (key in `.env`, never committed) |
 | [deck/](deck/) | Idea submission deck (PDF + HTML source) |
 
 ## Status
@@ -57,4 +125,5 @@ Shortlisted for the Tech4Bharat 2026 prototype round. Building now.
 |---|---|
 | Heir rules engine | built, 7 tests (`python3 engine/test_heirs.py`) |
 | Blocker check (pending cases, mutations, e-Pouthi) | built, live against e-Chawadi; needs the survey index (`PAUTI_DB`), not in this repo |
-| RTC reader, agent, Kannada voice, WhatsApp | not started |
+| Sarvam API | key verified |
+| RTC reader, agent, papers, Kannada voice, WhatsApp | not started |

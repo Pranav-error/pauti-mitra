@@ -2,7 +2,7 @@
 
 ## Land stuck in a dead owner's name
 
-- Karnataka has roughly 45 to 52 lakh land records (RTCs) still in the names of owners who have died. Press reports give different numbers; the Revenue Minister has cited 48 lakh. ([Deccan Herald](https://www.deccanherald.com/india/karnataka/karnataka-has-29-lakh-lands-in-the-name-of-dead-people-3244098), [Hans India](https://www.thehansindia.com/karnataka/govt-launches-special-campaign-to-transfer-land-records-to-heirs-942796))
+- Karnataka has roughly 45 to 52 lakh land records (RTCs) still in the names of owners who have died. Press reports give different numbers; the then Revenue Minister cited 48 lakh, and an IIHS evaluation for the Department of Land Resources counts about 48 lakh owners declared dead by village officers during Aadhaar seeding ([IIHS draft, p.16](https://cdnbbsr.s3waas.gov.in/s3d69116f8b0140cdeb1f99a4d5096ffe4/uploads/2025/07/20250730596089689.pdf)). ([Deccan Herald](https://www.deccanherald.com/india/karnataka/karnataka-has-29-lakh-lands-in-the-name-of-dead-people-3244098), [Hans India](https://www.thehansindia.com/karnataka/govt-launches-special-campaign-to-transfer-land-records-to-heirs-942796))
 - "Pauti" (also written pouthi, pauthi) is the inheritance mutation: moving the dead owner's name in the RTC to the legal heirs.
 - Until that happens, heirs can't get government schemes, bank loans or other benefits that need legal land ownership. (Hans India)
 
@@ -15,7 +15,7 @@ The government runs a doorstep Pauti Khate campaign, but reported reasons for no
 - not knowing who the legal heirs are
 - missing documents
 
-The Revenue Minister has also said relatives deny women their share. ([Deccan Herald](https://www.deccanherald.com/india/karnataka/kin-denying-women-land-share-karnataka-minister-krishna-byre-gowda-3895511))
+The then Revenue Minister also said relatives deny women their share. ([Deccan Herald](https://www.deccanherald.com/india/karnataka/kin-denying-women-land-share-karnataka-minister-krishna-byre-gowda-3895511))
 
 ## The wider picture
 

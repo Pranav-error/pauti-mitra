@@ -25,8 +25,9 @@ flowchart LR
 3. **Heirs:** a rules engine applies the Hindu Succession Act (as amended in 2005, daughters equal), other personal laws as separate rule sets. Output: each heir and share, explained in Kannada.
 4. **Blockers:** pending mutations and revenue cases for the survey number, plus map overlaps. Each one comes with the office to visit and what to bring.
 4b. **Consent:** if a daughter gives up her share, she confirms it herself, in a separate call or visit, not through the family. Research shows families have worked around equal inheritance by moving land to sons (Roy 2015).
-5. **Two steps if needed:** the family can record the heirs first and settle division later, where Karnataka's process allows. Japan's heir declaration works this way.
-6. **Hand over:** checklist and pre-filled application, sent on WhatsApp or printed at the service centre.
+5. **Heirs first, division later:** this is Karnataka's own order. Pouthi puts every heir on the RTC jointly; partition, the 11E sketch and podi are a separate, later step ([karnataka-system.md](karnataka-system.md)). Japan's heir declaration works the same way.
+6. **Hand over:** the family tree certificate pack (drawn tree, affidavit draft, every heir listed) for the Nadakacheri, the document checklist, and an Aadhaar OTP-day list (each heir's mobile linked and reachable for the village officer's eKYC), on WhatsApp or printed.
+7. **Track:** follow the MR number on e-Chawadi until the new RTC is out.
 
 Unusual cases (a will, a dispute, a court case) are flagged and sent to the revenue office. The agent never guesses them.
 
