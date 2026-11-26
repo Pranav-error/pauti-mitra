@@ -70,11 +70,13 @@ flowchart TB
 | | Operator web app | The village officer or CSC operator runs a case for a family, one village list at a time | planned |
 | Language | Sarvam `saaras` | Kannada speech to text | key verified (`sarvam_check.py`) |
 | | Sarvam `bulbul` | Kannada text to speech | planned |
-| | Sarvam Vision | Reads the RTC photo to find village, survey number and hissa, plus columns 10 and 11. Owners come from Bhoomi's own owner table; the photo is only a cross-check (names overflow on real RTCs) | tested on real RTCs |
-| Agent | `sarvam-105b` with tools | Asks one question at a time, fills the case file, calls the tools, explains results. Never decides who inherits | planned |
+| | [`engine/rtc_reader.py`](engine/rtc_reader.py) | Tesseract + rules, free, ~4 s: finds the record from an RTC photo (80% exact, 90% top-5 on 40 real RTCs) | **built** |
+| | Sarvam Vision | Only when the free reader fails. Reads the RTC photo to find village, survey number and hissa, plus columns 10 and 11. Owners come from Bhoomi's own owner table; the photo is only a cross-check (names overflow on real RTCs) | tested on real RTCs |
+| Agent | `sarvam-105b` with tools | Asks one question at a time, fills the case file, calls the tools, explains results. Never decides who inherits. Asks for hissa or district when Bhoomi has several; stops if the deceased is not on the RTC | **built** ([`engine/agent.py`](engine/agent.py), text chat) |
 | Tools | [`engine/heirs.py`](engine/heirs.py) | Class I heirs and shares (male owner: s.8, s.10; female owner: s.15(1)(a), s.16). Wills, ancestral property, disputes, other personal laws go to the revenue office | **built, 7 tests** |
 | | [`engine/blockers.py`](engine/blockers.py) | Live: pending RCCMS case, mutation in progress, e-Pouthi already filed. A failed lookup is `unknown`, never green | **built, live** |
-| | Papers | Family tree drawing and affidavit draft, checklist, OTP-day list | planned |
+| | [`engine/bhoomi.py`](engine/bhoomi.py) | Live current owners for a survey/hissa from Bhoomi's public View RTC page | **built, live** |
+| | [`engine/papers.py`](engine/papers.py) | PDF pack: heirs and shares, blockers, checklist, OTP-day list, family tree drawing, affidavit draft, separate consent page for a daughter giving up her share | **built** |
 | | Tracker | MR number on e-Chawadi until the new RTC | planned (reuses `blockers.py`) |
 | Data | e-Chawadi | Public revenue portal. Since Nov 2026 it returns HTML cards, which we parse | live |
 | | Survey index | About 9M survey numbers mapped to portal codes, from the author's cadastral crawl. **Not in this repo** (set `PAUTI_DB`) | local |
@@ -127,4 +129,6 @@ Shortlisted for the Tech4Bharat 2026 prototype round. Building now.
 | Heir rules engine | built, 7 tests (`python3 engine/test_heirs.py`) |
 | Blocker check (pending cases, mutations, e-Pouthi) | built, live against e-Chawadi; needs the survey index (`PAUTI_DB`), not in this repo |
 | Sarvam API | key verified |
-| RTC reader, agent, papers, Kannada voice, WhatsApp | not started |
+| RTC reader | built; Tesseract vs Sarvam on 40 real RTCs in [`docs/karnataka-system.md`](docs/karnataka-system.md) |
+| Agent + papers | built, text chat in Kannada; offline test `engine/test_agent.py` (fake Bhoomi record, no real people) |
+| Kannada voice, WhatsApp, operator app | not started |
